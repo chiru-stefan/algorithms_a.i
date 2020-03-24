@@ -16,7 +16,7 @@ class Search():
 
     def set_goal_node(self):
         '''
-        Sends data back to Operations in order to complete the backtrace
+        Sends data back to Operations to complete the backtrace
         :return:
         '''
         self.ops_obj.set_gn(self.goal_node, self.max_frontier_size, self.max_search_depth)
@@ -24,7 +24,7 @@ class Search():
 
     def bfs(self, start_state):
         '''
-        In theory is used a 'color' property, here I used containers that took the job of that property - mainly for checking visited / reached / not visited
+        In theory, is used a ‘color’ property, containers were used here, that took the job of that property - mainly for checking visited / reached / not visited.
         :param start_state: usually initial state
         :return: the breadth-first tree (containerized in a deque --- double ended queue)
         '''
@@ -63,7 +63,7 @@ class Search():
     def dfs(self, start_state):
         '''
         Searching the vertices first. expand(node) takes the depth neighbors first --- going in left/right after
-        Keeps record of visited nodes and max depth and max width (frontier)
+        Keeps record of visited nodes and max depth and max-width (frontier)
         :param start_state: usually initial state
         :return: the path in container<stack>
         '''
@@ -103,30 +103,30 @@ class Search():
         :return: a tree of paths in container<stack>
         '''
 
-        mlen = 0
+        mlen = 0                                                                    # number of iterations | nodes until crash
         explored, heap, heap_entry, counter = set(), list(), {}, itertools.count()
 
-        key = self.ops_obj.h(start_state)
+        key = self.ops_obj.h(start_state)                                           # key = heuristic function ( Manhattan distance )
 
         root = State(start_state, None, None, 0, 0, key)
 
-        entry = (key, 0, root)
+        entry = (key, 0, root)                                                      # entry = the best vertex available | list of tuples | <distance, move, state>
 
         heappush(heap, entry)
 
-        heap_entry[root.map] = entry
-
+        heap_entry[root.map] = entry                                                # create a dictionary with key = state(a1,a2,...,a8,a9)
+                                                                                    # value = shortest distance
         while heap:
             mlen+=1
-            node = heappop(heap)
+            node = heappop(heap)                                                    # extract the last node added
 
-            explored.add(node[2].map)
+            explored.add(node[2].map)                                               # unique nodes
 
-            if node[2].state == self.goal_state:
+            if node[2].state == self.goal_state:                                    # stop condition
                 self.goal_node = node[2]
                 return heap
 
-            neighbors = self.ops_obj.expand(node[2])
+            neighbors = self.ops_obj.expand(node[2])                                # check for available moves
 
             for neighbor in neighbors:
 
@@ -146,7 +146,7 @@ class Search():
                         self.max_search_depth += 1
 
                 elif neighbor.map in heap_entry and neighbor.key < heap_entry[neighbor.map][2].key:
-
+                    """ If we've found a better route update the dict """
                     hindex = heap.index((heap_entry[neighbor.map][2].key,
                                          heap_entry[neighbor.map][2].move,
                                          heap_entry[neighbor.map][2]))

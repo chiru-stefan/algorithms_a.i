@@ -1,5 +1,5 @@
-# Small project in Flask for testing 3 search algorithms used in A.I
-![result](myimage.gif)
+# Small project in Flask for testing BFS | DFS | A* --- in A.I
+![result](static/myimage.gif)
 ### BFS - Breadth First Seach:
 Data Structures and Introduction to Algorithms - "is one of the simplest algorithms for searching a graph and
 the archetype for many important graph algorithms. Prim’s minimum-spanning-
@@ -50,3 +50,7 @@ heuristic_function : h=∣xstart​−xdestination​∣+∣ystart​−ydestina
 fringe search is a graph search algorithm that finds the least-cost path from a given initial node to one goal node.
 
 In essence, fringe search is a middle ground between A* and the iterative deepening A* variant (IDA*). 
+
+
+### To-do:
+Visualize tool for tree branches (tree traversal) |  real-time tree generator using the states found

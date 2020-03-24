@@ -149,8 +149,8 @@ class Operations():
         file.write("path_to_goal: " + str(self.moves))
         file.write("\ncost_of_path: " + str(len(self.moves)))
         file.write("\nnodes_expanded: " + str(self.nodes_expanded))
-        file.write("\nfringe_size: " + str(len(frontier)))                  # Look in readme for the term explanation
-        file.write("\nmax_fringe_size: " + str(self.max_frontier_size))     # Look in readme for the term explanation
+        file.write("\nfringe_size: " + str(len(frontier)))                  # Look in readme for the frontier explanation
+        file.write("\nmax_fringe_size: " + str(self.max_frontier_size))     # Look in readme for the max_frontier_size explanation
         file.write("\nsearch_depth: " + str(self.goal_node.depth))
         file.write("\nmax_search_depth: " + str(self.max_search_depth))
         file.write("\nrunning_time: " + format(time, '.8f'))
