@@ -1,5 +1,5 @@
 # Small project in Flask for testing 3 search algorithms used in A.I
-
+![result](myimage.gif)
 ### BFS - Breadth First Seach:
 Data Structures and Introduction to Algorithms - "is one of the simplest algorithms for searching a graph and
 the archetype for many important graph algorithms. Prim’s minimum-spanning-
