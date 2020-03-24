@@ -1,0 +1,152 @@
+{% extends 'base.html' %}
+
+{% block head %}{% endblock %}
+
+
+{% block body %}
+<br>
+{% if m.move == 'None' %}
+  <p>Couldn't find a solution</p>
+  <p>Depth first search, can get stuck in an infinite branch and never reach the vertex you're looking for. </p>
+  <p>    Sorry  </p>
+<article>Johnson & Story (1879) used a parity argument to show that half of the starting positions
+  for the n-puzzle are impossible to resolve, no matter how many moves are made.
+</article>
+  <p>
+    More about 8/15 puzzle solvability <a href="https://en.wikipedia.org/wiki/15_puzzle#Solvability"><b> link </b></a>
+  </p>
+{% endif %}
+    <p id="moves">Moves: {{ m.move }} </p>
+
+
+
+<br>
+
+
+<table>
+  <thead>
+  States
+  </thead>
+  <tr id="row1">
+    <td id="col11">{{ i_s.init_state[0] }}</td>
+    <td id="col12">{{ i_s.init_state[1] }}</td>
+    <td id="col13">{{ i_s.init_state[2] }}</td>
+  </tr>
+
+  <tr id="row2">
+    <td id="col21">{{ i_s.init_state[3] }}</td>
+    <td id="col22">{{ i_s.init_state[4] }}</td>
+    <td id="col23">{{ i_s.init_state[5] }}</td>
+  </tr>
+
+  <tr id="row3">
+    <td id="col31">{{ i_s.init_state[6] }}</td>
+    <td id="col32">{{ i_s.init_state[7] }}</td>
+    <td id="col33">{{ i_s.init_state[8] }}</td>
+  </tr>
+
+</table>
+
+<button onclick="make_move()"> Make move </button>
+
+{% endblock %}
+
+
+{% block footer %}
+
+  <section class="section section-dark footer">
+    <p>
+      Made by C.S
+    </p>
+  </section>
+
+  </div>
+
+<script>
+
+var pos_x = {{pos.pos_x}};
+var pos_y = {{pos.pos_y}};
+var i = 0;
+
+function make_move(){
+  console.log("i: " + i);
+  var x = document.getElementsByTagName("table")[0];
+  var moves = document.getElementById("moves").innerHTML.split(" ")[1].split(',');
+
+  console.log(moves);
+  console.log(x);
+
+var queen=x.rows[pos_x].cells[pos_y];
+
+    if ( moves[i].localeCompare("Down") == 0){
+        console.log("Move " + i + " : " + moves[i]);
+        x.rows[pos_y].cells[pos_x].innerHTML = x.rows[pos_y+1].cells[pos_x].innerHTML;
+        pos_y ++;
+        x.rows[pos_y].cells[pos_x].innerHTML = 0;
+          i++;
+          console.log(pos_y);
+    }
+    else if (moves[i].localeCompare('Up') == 0){
+        console.log("Move " + i + " : " + moves[i]);
+        x.rows[pos_y].cells[pos_x].innerHTML = x.rows[pos_y-1].cells[pos_x].innerHTML;
+        pos_y -= 1;
+        x.rows[pos_y].cells[pos_x].innerHTML = 0;
+      i++;
+    }
+    else if (moves[i].localeCompare('Right') == 0 ){
+        console.log("Move " + i + " : " + moves[i]);
+        x.rows[pos_y].cells[pos_x].innerHTML = x.rows[pos_y].cells[pos_x+1].innerHTML;
+        pos_x += 1;
+        x.rows[pos_y].cells[pos_x].innerHTML = 0;
+      i++;
+    }
+    else if (moves[i].localeCompare('Left') == 0){
+        console.log("Move " + i + " : " + moves[i]);
+        x.rows[pos_y].cells[pos_x].innerHTML = x.rows[pos_y].cells[pos_x-1].innerHTML;
+        pos_x -= 1;
+        x.rows[pos_y].cells[pos_x].innerHTML = 0;
+      i++;
+    }
+
+}
+
+</script>
+
+
+<style>
+
+td{
+border:2px black solid;
+}
+
+.padd-top{
+      margin-top:100px;
+}
+
+table{
+margin-left:100px;
+
+padding-left:100px;
+font-size:30px;
+}
+
+
+.section{
+  text-align:center;
+  margin-top:500px;
+}
+
+.section-light{
+  background-color:#f4f4f4;
+  color:#666;
+}
+
+.section-dark{
+  background-color:#282e34;
+  color:#ddd;
+}
+</style>
+
+
+{% endblock %}
+

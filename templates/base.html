@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon3.png') }}" />
+    <meta charset="UTF-8">
+    <title>A.I Algorithms</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.js"> </script>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='bootstrap.min.js') }}"> </script>
+
+    {% block head %} {% endblock %}
+
+</head>
+<body>
+
+<div class="icon-bar sticky">
+    <a class="active" href="/index"><i class="fa fa-fw fa-home"></i> Home</a>
+</div>
+
+
+<p class="padd-top"></p>
+<div class="container">
+
+<form method="POST" action="/">
+    <input name="initial_state">
+    <button name="submit"> Set initial </button>
+    <select name="selection" value="_">
+        <option name="bfs" value="bfs">
+            BFS
+        </option>
+        <option name="dfs" value="dfs">
+            DFS
+        </option>
+        <option name="ast" value="ast">
+            AST
+        </option>
+
+    </select>
+</form>
+
+    {% block body %} {% endblock %}
+
+    {% block footer %}
+
+    {% endblock %}
+
+</body>
+</html>
