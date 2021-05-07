@@ -7,14 +7,14 @@ cryptography
 entrypoints==0.3
 filelock==3.0.12
 flask==1.1.1
-httplib2==0.11.3
+httplib2
 idna==2.6
 importlib-metadata==1.5.0
 itsdangerous==1.1.0
 jinja2
 keyring==17.1.1
 keyrings.alt==3.1.1
-lxml==4.5.0
+lxml
 mako==1.0.7
 markupsafe==1.1.0
 object-detection==0.1
