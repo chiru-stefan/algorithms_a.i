@@ -19,7 +19,7 @@ mako==1.0.7
 markupsafe==1.1.0
 object-detection==0.1
 packaging==20.3
-pip==20.0.2
+pip==21.1
 psutil==5.7.0
 pyqt5==5.14.1
 pyqt5-sip==12.7.1
