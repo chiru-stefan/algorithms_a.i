@@ -6,7 +6,7 @@ click==7.1.1
 cryptography
 entrypoints==0.3
 filelock==3.0.12
-flask==1.1.1
+flask==2.3.2
 httplib2
 idna==2.6
 importlib-metadata==1.5.0
