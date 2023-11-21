@@ -35,6 +35,6 @@ striprtf==0.0.10
 toml==0.10.0
 urllib3
 virtualenv==20.0.10
-werkzeug==2.2.3
+werkzeug==2.3.8
 wheel==0.32.3
 zipp==3.1.0
